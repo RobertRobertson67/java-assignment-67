@@ -32,7 +32,7 @@ public class Verdict {
         return caseName;
     }
     
-    public void setReason(){
+    public void setReason(String text){
         this.reason = reason;
     }
     
@@ -40,7 +40,7 @@ public class Verdict {
         return reason;
     }
     
-    public void setStudentVerdict(){
+    public void setStudentVerdict(boolean selected){
         this.studentVerdict = studentVerdict;
     }
     

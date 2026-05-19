@@ -14,6 +14,7 @@ public class Results extends javax.swing.JFrame {
      */
     public Results() {
         initComponents();
+        jLabel4.setText(Main_Menu.cases[0].verdict.getStudentVerdict());
     }
 
     /**
@@ -49,10 +50,10 @@ public class Results extends javax.swing.JFrame {
         jLabel3.setText("Results");
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
-        jLabel4.setText("1");
+        jLabel4.setText("0");
 
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
-        jLabel5.setText("1");
+        jLabel5.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
