@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -14,7 +15,24 @@ public class Results extends javax.swing.JFrame {
      */
     public Results() {
         initComponents();
-        jLabel4.setText(Main_Menu.cases[0].verdict.getStudentVerdict());
+            int ethic_counter = 0;
+            int unethic_counter = 0;
+            for (int i = 0; i < Main_Menu.cases.length; i++){
+                jLabel4.setText(Main_Menu.cases[i].verdict.getStudentVerdict());
+                if (Main_Menu.cases[i] = "Ethical"){
+                    ethic_counter++;
+                } else if (Main_Menu.cases[i] = "Unethical"){
+                    unethic_counter++;
+                }
+            }
+            
+            String ethic_counter2 = Integer.toString(ethic_counter);
+            String unethic_counter2 = Integer.toString(ethic_counter);
+
+            jLabel4.setText(ethic_counter2);
+            jLabel4.setText(unethic_counter2);
+            
+ 
     }
 
     /**

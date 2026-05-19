@@ -40,7 +40,7 @@ public class Verdict {
         return reason;
     }
     
-    public void setStudentVerdict(boolean selected){
+    public void setStudentVerdict(String text){
         this.studentVerdict = studentVerdict;
     }
     
