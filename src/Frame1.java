@@ -27,7 +27,6 @@ public class Frame1 extends javax.swing.JFrame {
                 jLabel1.setText("Scenerio 1: " + Main_Menu.cases[0].getCaseTitle());
                 jTextArea2.setText(Main_Menu.cases[0].getCaseDescription());
                 jLabel2.setText("Category: " + Main_Menu.cases[0].getCategory());
-                
             }
         });
 
@@ -143,6 +142,9 @@ public class Frame1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Frame2().setVisible(true);
         this.setVisible(false);
+        Main_Menu.cases[0].verdict.setReason(jTextArea1.getText());
+        Main_Menu.cases[0].verdict.setStudentVerdict(jRadioButton1.isSelected());
+        Main_Menu.cases[0].verdict.setCaseName(jTextArea1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
