@@ -8,16 +8,43 @@
  * @author 342877867
  */
 public class Main_Menu extends javax.swing.JFrame {
-    
     public static EthicsCase cases[] = new EthicsCase[8];
-
-
+   
     /**
      * Creates new form Main_Menu
      */
     public Main_Menu() {
         initComponents();
-        cases[0] = new EthicsCase("The always on microphone", "A smart speaker recording household conversations even when device is off", "Employess reviewing these audio files");
+        cases[0] = new PrivacyCase("The always on microphone", 
+                "A smart speaker is recording household conversations\neven when device is off. " +
+                "Employees are then reviewing\nthese audio files.", "Audio Recording");
+        
+        cases[1] = new PrivacyCase("Investigating your data", "Police is asking for your chat logs for an investigation\n" + 
+                "as they need to see your files.", "Data Collecting");
+        
+        cases[2] = new AlgorithmCase("The Biased Hiring Bot", "AI ranks male applicant higher than female applicants.\n" + 
+            "The AI algorithm is showing bias.", "Gender Bias");
+        
+        cases[3] = new MisinformationCase("The Deepfake politician", 
+            "A deepfake video of a famous politician sayings things\nis being spread onliine. A deepfake video is being\nshared.",
+            "Deepfake Video");
+        
+        cases[4] = new IntellectualPropertyCase("AI Trained On Artist Work", 
+            "An AI image generator was trained on millions of\nartworks scraped without permission. Artists receive no\ncredit or payment.",
+            "AI Generated Art");
+        
+        cases[5] = new AlgorithmCase("Algorithm for facial regonition", "Algorithm struggles to detect those with darker skin\nshades. " + 
+                "Algorithm is showing demographic and\nalgorithm bias.", "Racial Bias");
+        
+        cases[6] = new MisinformationCase("A news article contains a misleading headline", 
+                "An article has content that is not fully accurate to\nthe title. Title is clickbait and misleading." ,
+                "Misleading Headline");
+        
+        cases[7] = new IntellectualPropertyCase("A streaming subscription is purchased",
+                "A person subscribes to a streaming service to get their\nentertainment over the use of piracy.", "Legal streaming service");
+        
+      
+
     }
 
     /**

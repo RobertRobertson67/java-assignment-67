@@ -11,22 +11,22 @@ import java.awt.event.WindowAdapter;
  *
  * @author andrewchow
  */
-public class Frame1 extends javax.swing.JFrame {
+public class Frame5 extends javax.swing.JFrame {
     
 
     /**
      * Creates new form Frame1
      */
-    public Frame1() {
+    public Frame5() {
         initComponents();
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowActivated(WindowEvent e) {
                 System.out.println("JFrame is now focused!");
                 //add code here
-                jLabel1.setText("Scenerio 1: " + Main_Menu.cases[0].getCaseTitle());
-                jTextArea2.setText(Main_Menu.cases[0].getCaseDescription());
-                jLabel2.setText("Category: " + Main_Menu.cases[0].getCategory());
+                jLabel1.setText("Scenerio 5: " + Main_Menu.cases[4].getCaseTitle());
+                jTextArea2.setText(Main_Menu.cases[4].getCaseDescription());
+                jLabel2.setText("Category: " + Main_Menu.cases[4].getCategory());
                 
             }
         });
@@ -141,7 +141,7 @@ public class Frame1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new Frame2().setVisible(true);
+        new Frame6().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

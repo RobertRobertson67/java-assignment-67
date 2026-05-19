@@ -13,7 +13,9 @@ public class Verdict {
     private String reason;
     
     public Verdict(){
-        
+        this.caseName = "";
+        this.studentVerdict = "";
+        this.reason = "";
     }
     
     public Verdict(String caseName, String verdict, String reason){

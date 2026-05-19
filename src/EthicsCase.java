@@ -13,7 +13,7 @@ public class EthicsCase {
     private String category;
     public Verdict verdict;
     
-    public EthicsCase(String CaseTitle, String description, String category){
+    public EthicsCase(String caseTitle, String description, String category){
         this.caseTitle = caseTitle;
         this.description = description;
         this.category = category;   
