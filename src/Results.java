@@ -18,19 +18,35 @@ public class Results extends javax.swing.JFrame {
             int ethic_counter = 0;
             int unethic_counter = 0;
             for (int i = 0; i < Main_Menu.cases.length; i++){
-                jLabel4.setText(Main_Menu.cases[i].verdict.getStudentVerdict());
-                if (Main_Menu.cases[i] = "Ethical"){
-                    ethic_counter++;
-                } else if (Main_Menu.cases[i] = "Unethical"){
-                    unethic_counter++;
+                if (Main_Menu.cases[i].verdict != null) {
+                    String choice = Main_Menu.cases[i].verdict.getStudentVerdict();
+                    if (choice.equals("Ethical")){
+                        ethic_counter++;
+                    } else if (choice.equals("Unethical")){
+                        unethic_counter++;
+                    } 
                 }
             }
             
             String ethic_counter2 = Integer.toString(ethic_counter);
-            String unethic_counter2 = Integer.toString(ethic_counter);
+            String unethic_counter2 = Integer.toString(unethic_counter);
 
             jLabel4.setText(ethic_counter2);
-            jLabel4.setText(unethic_counter2);
+            jLabel5.setText(unethic_counter2);
+            
+            if (unethic_counter >= 0 && unethic_counter <= 2){
+                jTextArea1.setText("Your Profile: The Tech Optimist\n" + 
+                "You see technology as largely a force for\ngood. You tend to trust that companies\nand developers have good intentions.");
+            } else if (unethic_counter >= 2 && unethic_counter <= 4){
+                jTextArea1.setText("Your Profile: The Cautious Realist\n" +
+                "You see both the benefits and dangers of\ntechnology. You believe progress is good,\nbut needs rules and accountability.");
+            } else if (unethic_counter >= 4 && unethic_counter <= 6){
+                jTextArea1.setText("Your Profile: The Critical Thinker\n" +
+                "You are skeptical of how technology is\nbeing used. You believe the tech industry\nneeds serious reform to protect people.");
+            } else if (unethic_counter >= 6 && unethic_counter <= 8){
+                jTextArea1.setText("Your Profile: The Ethics Watchdog\n" +
+                "You believe technology is causing more\nharm than good right now. You think strong\nlaws and ethical standards are urgently\nneeded.");
+            }
             
  
     }

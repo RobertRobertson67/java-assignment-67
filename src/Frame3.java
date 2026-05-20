@@ -143,6 +143,18 @@ public class Frame3 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new Frame4().setVisible(true);
         this.setVisible(false);
+        
+        Main_Menu.cases[2].verdict.setCaseName(Main_Menu.cases[0].getCaseTitle());
+        
+        String decision = "";
+        if (jRadioButton1.isSelected()){
+            decision = "Ethical";
+        } else if (jRadioButton2.isSelected()){
+            decision = "Unethical";
+        }
+        Main_Menu.cases[2].verdict.setStudentVerdict(decision);
+        
+        Main_Menu.cases[2].verdict.setReason(jTextArea1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

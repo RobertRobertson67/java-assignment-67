@@ -143,16 +143,17 @@ public class Frame1 extends javax.swing.JFrame {
         new Frame2().setVisible(true);
         this.setVisible(false);
         
-        Main_Menu.cases[0].verdict.setReason(jTextArea1.getText());
+        Main_Menu.cases[0].verdict.setCaseName(Main_Menu.cases[0].getCaseTitle());
         
+        String decision = "";
         if (jRadioButton1.isSelected()){
-            Main_Menu.cases[0].verdict.setStudentVerdict(jRadioButton1.getText());
+            decision = "Ethical";
         } else if (jRadioButton2.isSelected()){
-            Main_Menu.cases[0].verdict.setStudentVerdict(jRadioButton2.getText());
+            decision = "Unethical";
         }
+        Main_Menu.cases[0].verdict.setStudentVerdict(decision);
         
-        
-        //Main_Menu.cases[0].verdict.setCaseName(jTextArea1.getText());
+        Main_Menu.cases[0].verdict.setReason(jTextArea1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
