@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import 
+
 /**
  *
  * @author 342877867
@@ -44,6 +46,8 @@ public class Main_Menu extends javax.swing.JFrame {
         
         cases[7] = new IntellectualPropertyCase("A streaming subscription is purchased",
                 "A person subscribes to a streaming service to get their\nentertainment over the use of piracy.", "Legal streaming service");
+        
+        
         
       
 
