@@ -24,9 +24,10 @@ public class Frame2 extends javax.swing.JFrame {
             public void windowActivated(WindowEvent e) {
                 System.out.println("JFrame is now focused!");
                 //add code here
+                //Set the text of the textboxes by calling
                 jLabel1.setText("Scenerio 2: " + Main_Menu.cases[1].getCaseTitle());
                 jTextArea2.setText(Main_Menu.cases[1].getCaseDescription());
-                jLabel2.setText("Category: " + Main_Menu.cases[0].getCategory());
+                jLabel2.setText("Category: " + Main_Menu.cases[1].getCategory());
                 
             }
         });
@@ -75,7 +76,9 @@ public class Frame2 extends javax.swing.JFrame {
 
         jRadioButton2.setText("Unethical");
 
+        jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
@@ -141,19 +144,24 @@ public class Frame2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Switch to next frame
         new Frame3().setVisible(true);
         this.setVisible(false);
         
-        Main_Menu.cases[1].verdict.setCaseName(Main_Menu.cases[0].getCaseTitle());
+        //Set the object by calling another method from cases to get case title
+        Main_Menu.cases[1].verdict.setCaseName(Main_Menu.cases[1].getCaseTitle());
         
+        //If-else statements where if a button is clicked it makes the decison value ethical or unethical which get added to the cases array
         String decision = "";
         if (jRadioButton1.isSelected()){
             decision = "Ethical";
         } else if (jRadioButton2.isSelected()){
             decision = "Unethical";
         }
+        //Set the object by calling another method from cases to get decision
         Main_Menu.cases[1].verdict.setStudentVerdict(decision);
         
+        //Set the object by getting user input text to get reason
         Main_Menu.cases[1].verdict.setReason(jTextArea1.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 

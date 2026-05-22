@@ -1,8 +1,0 @@
-The always on microphone, Privacy Case, Audio Recording, A smart speaker is recording household conversations even when device is off. Employees are then reviewing these audio files.
-Investigating your data, Privacy Case, Data Collecting, Police is asking for your chat logs for an investigation as they need to see your files.
-The Biased Hiring Bot, Algorithm Case, Gender Bias, AI ranks male applicant higher than female applicants. The AI algorithm is showing bias.
-The Deepfake politician, Misinformation Case, Deepfake Video, A Deepfake video of a famous politician sayings things is being spread online. A Deepfake video is being shared.
-AI Trained On Artist Work, Intellectual Property Case, AI Generated Art, An AI image generator was trained on millions of artworks scraped without permission. Artists receive no credit or payment.
-Algorithm for facial recognition, Algorithm Case, Racial Bias, Algorithm struggles to detect those with darker skin shades. Algorithm is showing demographic and algorithm bias.
-A news article contains a misleading headline, Misinformation Case, Misleading Headline, An article has content that is not fully accurate to the title. Title is clickbait and misleading.
-A streaming subscription is purchased, Intellectual Property Case, Legal streaming service, A person subscribes to a streaming service to get their entertainment over the use of piracy.

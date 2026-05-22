@@ -3,54 +3,94 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
-import 
+//Import important packages
+import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
+
 
 /**
  *
  * @author 342877867
  */
 public class Main_Menu extends javax.swing.JFrame {
+    //Create global array with size 8
     public static EthicsCase cases[] = new EthicsCase[8];
-//    public static int ethic_score = 0;
-//    public static int unethic_score = 0;
+
    
     /**
      * Creates new form Main_Menu
      */
     public Main_Menu() {
         initComponents();
-        cases[0] = new PrivacyCase("The always on microphone", 
-                "A smart speaker is recording household conversations\neven when device is off. " +
-                "Employees are then reviewing\nthese audio files.", "Audio Recording");
+//        cases[0] = new PrivacyCase("The always on microphone", 
+//                "A smart speaker is recording household conversations\neven when device is off. " +
+//                "Employees are then reviewing\nthese audio files.", "Audio Recording");
+//        
+//        cases[1] = new PrivacyCase("Investigating your data", "Police is asking for your chat logs for an investigation\n" + 
+//                "as they need to see your files.", "Data Collecting");
+//        
+//        cases[2] = new AlgorithmCase("The Biased Hiring Bot", "AI ranks male applicant higher than female applicants.\n" + 
+//            "The AI algorithm is showing bias.", "Gender Bias");
+//        
+//        cases[3] = new MisinformationCase("The Deepfake politician", 
+//            "A deepfake video of a famous politician sayings things\nis being spread onliine. A deepfake video is being\nshared.",
+//            "Deepfake Video");
+//        
+//        cases[4] = new IntellectualPropertyCase("AI Trained On Artist Work", 
+//            "An AI image generator was trained on millions of\nartworks scraped without permission. Artists receive no\ncredit or payment.",
+//            "AI Generated Art");
+//        
+//        cases[5] = new AlgorithmCase("Algorithm for facial regonition", "Algorithm struggles to detect those with darker skin\nshades. " + 
+//                "Algorithm is showing demographic and\nalgorithm bias.", "Racial Bias");
+//        
+//        cases[6] = new MisinformationCase("A news article contains a misleading headline", 
+//                "An article has content that is not fully accurate to\nthe title. Title is clickbait and misleading." ,
+//                "Misleading Headline");
+//        
+//        cases[7] = new IntellectualPropertyCase("A streaming subscription is purchased",
+//                "A person subscribes to a streaming service to get their\nentertainment over the use of piracy.", "Legal streaming service");
         
-        cases[1] = new PrivacyCase("Investigating your data", "Police is asking for your chat logs for an investigation\n" + 
-                "as they need to see your files.", "Data Collecting");
         
-        cases[2] = new AlgorithmCase("The Biased Hiring Bot", "AI ranks male applicant higher than female applicants.\n" + 
-            "The AI algorithm is showing bias.", "Gender Bias");
+        //Initialize counter
+        int count = 0;
+        //Reading from File.txt to get data for each situation
+        //Try-catch block to catch ioException error
+        try {
+            //Use scanner to read input from file
+            Scanner fileInput = new Scanner(new File("File.txt"));
+            //while loop so that loop will occur if there is another line to read
+            while (fileInput.hasNext()){
+                //Initialize data to the variable "output"
+                String output = fileInput.nextLine();
+                //Split "output" into an array
+                String [] data = output.split(",");
+                //Add data to specific arrays
+                String Title = data[0].trim();
+                String category = data[1].trim();
+                String type = data[2].trim();
+                String description = data[3].trim();
+                
+                //If-else statement to match category with the speciifc category options and instantaniating values
+                if (category.equals("Privacy Case")) {
+                    cases[count] = new PrivacyCase(Title, description, type);
+                } else if (category.equals("Algorithm Case")) {
+                    cases[count] = new AlgorithmCase(Title, description, type);
+                } else if (category.equals("Misinformation Case")) {
+                    cases[count] = new MisinformationCase(Title, description, type);
+                } else if (category.equals("Intellectual Property Case")) {
+                    cases[count] = new IntellectualPropertyCase(Title, description, type);
+                }
+                //Add to counter
+                count++; 
+            }
+            //Close file
+            fileInput.close();
+        //Error message if exception caught
+        } catch (IOException ioException) {
+            System.err.println("Java Exception: " + ioException);
+        }
         
-        cases[3] = new MisinformationCase("The Deepfake politician", 
-            "A deepfake video of a famous politician sayings things\nis being spread onliine. A deepfake video is being\nshared.",
-            "Deepfake Video");
-        
-        cases[4] = new IntellectualPropertyCase("AI Trained On Artist Work", 
-            "An AI image generator was trained on millions of\nartworks scraped without permission. Artists receive no\ncredit or payment.",
-            "AI Generated Art");
-        
-        cases[5] = new AlgorithmCase("Algorithm for facial regonition", "Algorithm struggles to detect those with darker skin\nshades. " + 
-                "Algorithm is showing demographic and\nalgorithm bias.", "Racial Bias");
-        
-        cases[6] = new MisinformationCase("A news article contains a misleading headline", 
-                "An article has content that is not fully accurate to\nthe title. Title is clickbait and misleading." ,
-                "Misleading Headline");
-        
-        cases[7] = new IntellectualPropertyCase("A streaming subscription is purchased",
-                "A person subscribes to a streaming service to get their\nentertainment over the use of piracy.", "Legal streaming service");
-        
-        
-        
-      
-
     }
 
     /**
@@ -138,6 +178,7 @@ public class Main_Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Swap to next jFrame
         new Frame1().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

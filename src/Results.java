@@ -4,6 +4,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+//Import packages to help with File IPO
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+
 /**
  *
  * @author andrewchow
@@ -15,11 +20,16 @@ public class Results extends javax.swing.JFrame {
      */
     public Results() {
         initComponents();
+            //Set 2 counters for ethical or unethical results
             int ethic_counter = 0;
             int unethic_counter = 0;
+            //For loop to iterate through cases array
             for (int i = 0; i < Main_Menu.cases.length; i++){
+                //If statement to make sure the value in the array at that index isnt empty/null
                 if (Main_Menu.cases[i].verdict != null) {
+                    //Call the method getStudentVerdict() to find what user stated as ethical or not
                     String choice = Main_Menu.cases[i].verdict.getStudentVerdict();
+                    //If-statement to increase counter if verdict says ethical or unethical
                     if (choice.equals("Ethical")){
                         ethic_counter++;
                     } else if (choice.equals("Unethical")){
@@ -28,27 +38,53 @@ public class Results extends javax.swing.JFrame {
                 }
             }
             
+            //Convert form integer to string
             String ethic_counter2 = Integer.toString(ethic_counter);
             String unethic_counter2 = Integer.toString(unethic_counter);
-
+            
+            //Change the value of the 2 textboxes to ehtical or unethical counter
             jLabel4.setText(ethic_counter2);
             jLabel5.setText(unethic_counter2);
             
+            //Set of If-else statements to output a profile and description based on the ir verdicts
+            //Between 0 and 2 means you tend to trust companies
             if (unethic_counter >= 0 && unethic_counter <= 2){
                 jTextArea1.setText("Your Profile: The Tech Optimist\n" + 
                 "You see technology as largely a force for\ngood. You tend to trust that companies\nand developers have good intentions.");
+            //Between 2 and 4 means you are balances and see both good and bad of technology
             } else if (unethic_counter >= 2 && unethic_counter <= 4){
                 jTextArea1.setText("Your Profile: The Cautious Realist\n" +
                 "You see both the benefits and dangers of\ntechnology. You believe progress is good,\nbut needs rules and accountability.");
+            //Between 4 and 6 means you believe reform of the tech industry is needed
             } else if (unethic_counter >= 4 && unethic_counter <= 6){
                 jTextArea1.setText("Your Profile: The Critical Thinker\n" +
                 "You are skeptical of how technology is\nbeing used. You believe the tech industry\nneeds serious reform to protect people.");
+            //Between 6 and 8 means you believe tech is doing more harm than good
             } else if (unethic_counter >= 6 && unethic_counter <= 8){
                 jTextArea1.setText("Your Profile: The Ethics Watchdog\n" +
                 "You believe technology is causing more\nharm than good right now. You think strong\nlaws and ethical standards are urgently\nneeded.");
             }
             
- 
+            //Writing to an empty file of all the data and verdicts from the user as a history
+            //Try-catch block to catch ioException error
+            try {
+                //Using filewriter and printwriter to open and add to Results.txt file
+                FileWriter w = new FileWriter ("Results.txt", true);
+                PrintWriter output = new PrintWriter(w);
+                
+                //For loop to iterate through cases array
+                for (int i = 0; i < Main_Menu.cases.length; i++){
+                    //output values and data to the empty file
+                    output.println(Main_Menu.cases[i].verdict.getCaseName() + ", " + Main_Menu.cases[i].verdict.getStudentVerdict() + 
+                            ", " + Main_Menu.cases[i].verdict.getReason());
+                }
+                //Close file
+                output.close();
+            //Output error message for catch exception
+            } catch (IOException ioException) {
+                    System.err.println("Java Exception: " + ioException);
+                }   
+
     }
 
     /**
