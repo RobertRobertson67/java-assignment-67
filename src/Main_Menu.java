@@ -16,7 +16,8 @@ import java.util.Scanner;
 public class Main_Menu extends javax.swing.JFrame {
     //Create global array with size 8
     public static EthicsCase cases[] = new EthicsCase[8];
-
+    
+    
    
     /**
      * Creates new form Main_Menu

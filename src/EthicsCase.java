@@ -52,6 +52,25 @@ public class EthicsCase {
     }
     
     /**
+    Method to return a recommendation/help text based on the case/class
+    @Param ethicsCase This is the EthicsCase object being passed in
+    @Return recommendation/help text
+    */
+    public static String getHelp(EthicsCase ethicsCase){
+        if (ethicsCase instanceof PrivacyCase){
+            return "Think about who has access to your personal data and whether you consented to it.";
+        } else if (ethicsCase instanceof AlgorithmCase){
+            return "Consider whether the algorithm is treating all groups of people fairly.";
+        } else if (ethicsCase instanceof MisinformationCase){
+            return "Ask yourself: is this information verified and from a credible source?";
+        } else if (ethicsCase instanceof IntellectualPropertyCase){
+            return "Consider whether the creator is being credited and compensated fairly.";
+        } else {
+            return "";
+        }
+    }
+    
+    /**
     Method to return values in personal format
     @Return caseTitle
     @Return description

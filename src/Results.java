@@ -14,6 +14,21 @@ import java.io.FileWriter;
  * @author andrewchow
  */
 public class Results extends javax.swing.JFrame {
+    
+    //Constants for ethical and unethical values
+    public static final String ETHICAL = "Ethical";
+    public static final String UNETHICAL = "Unethical";
+    
+    /**
+    Method to return the ethical and unethical counters as strings
+    @Param ethic_counter This is the total number of ethical verdicts
+    @Param unethic_counter This is the total number of unethical verdicts
+    @Return String array
+    */
+    public static String[] getResultsSummary(int ethic_counter, int unethic_counter){
+        //Convert from integer to string
+        return new String[]{Integer.toString(ethic_counter), Integer.toString(unethic_counter)};
+    }
 
     /**
      * Creates new form Results
@@ -30,21 +45,20 @@ public class Results extends javax.swing.JFrame {
                     //Call the method getStudentVerdict() to find what user stated as ethical or not
                     String choice = Main_Menu.cases[i].verdict.getStudentVerdict();
                     //If-statement to increase counter if verdict says ethical or unethical
-                    if (choice.equals("Ethical")){
+                    if (choice.equals(ETHICAL)){
                         ethic_counter++;
-                    } else if (choice.equals("Unethical")){
+                    } else if (choice.equals(UNETHICAL)){
                         unethic_counter++;
                     } 
                 }
             }
             
-            //Convert form integer to string
-            String ethic_counter2 = Integer.toString(ethic_counter);
-            String unethic_counter2 = Integer.toString(unethic_counter);
+            //Call static method for string integer conversion
+            String[] summary = Results.getResultsSummary(ethic_counter, unethic_counter);
             
-            //Change the value of the 2 textboxes to ehtical or unethical counter
-            jLabel4.setText(ethic_counter2);
-            jLabel5.setText(unethic_counter2);
+            //Change the value of the 2 textboxes to ethical or unethical counter
+            jLabel4.setText(summary[0]);
+            jLabel5.setText(summary[1]);
             
             //Set of If-else statements to output a profile and description based on the ir verdicts
             //Between 0 and 2 means you tend to trust companies

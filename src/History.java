@@ -117,27 +117,41 @@ public class History extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //line counter
         int linecount = 0;
+        //Reading from Results.txt to increase linecount and go through each line
+        //Try-catch block to catch ioException error
         try {
+        //Use scanner to read input from file
         Scanner fileInput = new Scanner( new File("Results.txt") );
+        //while loop so that loop will occur if there is another line to read
         while (fileInput.hasNext()){
             fileInput.nextLine();
             linecount++;
         }
+        //Close file
         fileInput.close();
+        //Error message if exception caught
         } catch ( IOException ioException ) {
             System.err.println( "Java Exception: " + ioException);
         }
-
+        
+        //Another line counter
         int count = 1;
+        //Try-catch block to catch ioException error
         try {
+        //Use scanner to read input from file
         Scanner fileInput = new Scanner( new File("Results.txt") );
+        //while loop so that loop will occur if there is another line to read
         while (fileInput.hasNext()){
             String output = fileInput.nextLine();
+            //Change textbox with history of verdicts and stuff
             jTextArea1.append("Result " + (count) + ": " + output + "\n");
             count++;
         }
+        //Close file
         fileInput.close();
+        //Error message if exception caught
         } catch ( IOException ioException ) {
             System.err.println( "Java Exception: " + ioException);
         }
